@@ -13,23 +13,36 @@ class Month extends React.Component {
     const { count } = this.props;
 
     if (count >= 11) {
-      this.setState({ color: 'red' })
+      this.setState({ color: 'darkred' })
     } else if (count < 11 && count >= 7) {
-      this.setState({ color: 'green' })
+      this.setState({ color: 'darkgreen' })
     } else if (count < 7 && count >= 3) {
-      this.setState({ color: 'blue' })
+      this.setState({ color: 'darkblue' })
     } else if (count < 3) {
       this.setState({ color: 'grey' })
     }
-    console.log(this.state.color)
   }
 
+  changeFilter = () => {
+    this.props.changeFilter();
+  };
+
   render() {
-    const {name, count, changeFilter} = this.props;
+    const {name, id, filter} = this.props;
+    const isActive = id === filter ? {
+      boxShadow: `0 0 5px white, 0 0 10px white, 0 0 15px ${this.state.color}, 0 0 20px ${this.state.color}, 0 0 25px ${this.state.color}, 0 0 30px ${this.state.color}, 0 0 35px ${this.state.color}`,
+      textShadow: `0 0 5px white, 0 0 10px white, 0 0 15px ${this.state.color}, 0 0 20px ${this.state.color}, 0 0 25px ${this.state.color}, 0 0 30px ${this.state.color}, 0 0 35px ${this.state.color}`,
+      transitionProperty: 'all',
+      transitionDuration: '0.2s',
+      transitionTimingFunction: 'ease'
+    } : {};
 
     return (
-      <div className={`user ${this.state.color}`} onMouseOver={changeFilter}>
-        {name}, {count}
+      <div className={`month ${this.state.color}`}
+           onMouseOver={this.changeFilter}
+           style={isActive}
+           >
+        {name}
       </div>
     )
   }

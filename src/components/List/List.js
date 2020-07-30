@@ -3,7 +3,7 @@ import MonthListItem from "../MonthListItem";
 import UserListItem from "../UserListItem";
 import "./list.css";
 
-const List = ({items, isUsers, changeFilter}) => {
+const List = ({items, isUsers, filter, changeFilter}) => {
   const list = items.map((item) => {
     const {id, ...itemProps} = item;
 
@@ -11,7 +11,8 @@ const List = ({items, isUsers, changeFilter}) => {
       <div key={id}>
         {isUsers ? <UserListItem {...itemProps} /> :
           <MonthListItem
-            {...itemProps}
+            {...item}
+            filter={filter}
             changeFilter={() => changeFilter(id)}
           />
         }

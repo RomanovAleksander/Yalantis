@@ -42,7 +42,6 @@ export default class App extends React.Component {
           })
         });
         this.setState({loaded: true});
-        console.log(this.state.months)
       })
       .catch((err) => {
         this.setState({err: err})
@@ -76,11 +75,12 @@ export default class App extends React.Component {
       <div className="wrapper">
         {
           loaded && <List items={months}
-                              changeFilter={this.onFilterChange}
-                              isUsers={false} />
+                          changeFilter={this.onFilterChange}
+                          filter={filter}
+                          isUsers={false} />
         }
         {
-          filter === null ? 'Hold' :
+          filter === null ? <div className='hint'>Select month</div> :
           <List items={visibleUsers}
                 isUsers={true} />
         }

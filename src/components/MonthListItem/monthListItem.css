@@ -1,21 +1,25 @@
-.user {
+.month {
+  width: 110px;
   border-radius: 5px;
-  border: 1px solid black;
-  margin: 1px;
+  margin: 5px;
+  padding: 5px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
 }
 
-.red {
-  background: red;
+.darkred {
+  background: darkred;
 }
 
 .grey {
   background: grey;
 }
 
-.blue {
-  background: blue;
+.darkblue {
+  background: darkblue;
 }
 
-.green {
-  background: green;
+.darkgreen {
+  background: darkgreen;
 }
