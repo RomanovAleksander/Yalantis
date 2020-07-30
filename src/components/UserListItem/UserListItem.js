@@ -2,7 +2,7 @@ import React from "react";
 import "./UserListItem.css";
 
 const UserListItem = (props) => {
-  const { firstName, lastName, dob} = props;
+  const { firstName, lastName, dob } = props;
 
   return (
     <div className="user">

@@ -2,7 +2,7 @@ import React from "react";
 import UserListItem from "../UserListItem";
 import "./userList.css";
 
-const UserList = ({users}) => {
+const UserList = ({ users }) => {
   const usersList = users.map((user) => {
     const { id, ...userProps } = user;
 

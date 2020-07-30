@@ -3,6 +3,7 @@ import UserList from '../UserList'
 
 import Api from '../../api/api';
 import './App.css';
+import MonthList from "../MonthList";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -10,19 +11,21 @@ export default class App extends React.Component {
     this.state = {
       users: [],
       months: [
-        { id: "1", name: "January" },
-        { id: "2", name: "February" },
-        { id: "3", name: "March" },
-        { id: "4", name: "April" },
-        { id: "5", name: "May" },
-        { id: "6", name: "June" },
-        { id: "7", name: "July" },
-        { id: "8", name: "August" },
-        { id: "9", name: "September" },
-        { id: "10", name: "October" },
-        { id: "11", name: "November" },
-        { id: "12", name: "December" }
+        { id: 0, name: "January", count: 0 },
+        { id: 1, name: "February", count: 0 },
+        { id: 2, name: "March", count: 0 },
+        { id: 3, name: "April", count: 0 },
+        { id: 4, name: "May", count: 0 },
+        { id: 5, name: "June", count: 0 },
+        { id: 6, name: "July", count: 0 },
+        { id: 7, name: "August", count: 0 },
+        { id: 8, name: "September", count: 0 },
+        { id: 9, name: "October", count: 0 },
+        { id: 10, name: "November", count: 0 },
+        { id: 11, name: "December", count: 0 }
       ],
+      filter: null,
+      loaded: false,
       err: {}
     };
   }
@@ -31,16 +34,51 @@ export default class App extends React.Component {
     Api.get()
       .then((data) => {
         this.setState({users: data});
-        console.log(this.state.users);
+        data.forEach((user) => {
+          const dob = new Date(user.dob);
+
+          this.state.months.forEach((month) => {
+            if (month.id === Number(dob.getMonth())) {
+              this.updateMonthsArray(month)
+            }
+          })
+        });
+        this.setState({loaded: true});
+        console.log(this.state.months)
       })
       .catch((err) => {
         this.setState({err: err})
       })
   }
 
+  updateMonthsArray = (month) => {
+    const monthIndex = this.state.months.findIndex(item => item.id === month.id);
+    const updateMonth = (item, count) => {
+      return {
+        ...item,
+        count: item.count + count
+      }
+    };
+
+    this.setState(({ months }) => ({
+      months: [...months.slice(0, monthIndex),  updateMonth(months[monthIndex], 1), ...months.slice(monthIndex + 1)]
+    }))
+  };
+
+  onFilterChange = (month) => {
+    this.setState({ filter: month })
+  };
+
   render() {
+    const { months, users, loaded, filter } = this.state;
+    const userMonthOfBirth = (user) => Number(new Date(user.dob).getMonth());
+    const visibleUsers = users.filter((item) => userMonthOfBirth(item) === filter);
+
     return (
-      <UserList users={this.state.users} />
+      <div className="wrapper">
+        {loaded && <MonthList months={months} changeFilter={this.onFilterChange}/>}
+        {filter === null ? 'Hold' : <UserList users={visibleUsers} />}
+      </div>
     );
   }
 }
