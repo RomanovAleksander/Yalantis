@@ -1,9 +1,7 @@
 import React from 'react';
-import UserList from '../UserList'
-
+import List from '../List';
 import Api from '../../api/api';
 import './App.css';
-import MonthList from "../MonthList";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -76,8 +74,16 @@ export default class App extends React.Component {
 
     return (
       <div className="wrapper">
-        {loaded && <MonthList months={months} changeFilter={this.onFilterChange}/>}
-        {filter === null ? 'Hold' : <UserList users={visibleUsers} />}
+        {
+          loaded && <List items={months}
+                              changeFilter={this.onFilterChange}
+                              isUsers={false} />
+        }
+        {
+          filter === null ? 'Hold' :
+          <List items={visibleUsers}
+                isUsers={true} />
+        }
       </div>
     );
   }
