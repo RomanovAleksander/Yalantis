@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/Yalantis/static/css/main.479e6965.chunk.css",
-    "main.js": "/Yalantis/static/js/main.feccd4d1.chunk.js",
-    "main.js.map": "/Yalantis/static/js/main.feccd4d1.chunk.js.map",
+    "main.css": "/Yalantis/static/css/main.d3ddccce.chunk.css",
+    "main.js": "/Yalantis/static/js/main.bb1ea494.chunk.js",
+    "main.js.map": "/Yalantis/static/js/main.bb1ea494.chunk.js.map",
     "runtime-main.js": "/Yalantis/static/js/runtime-main.74630fdf.js",
     "runtime-main.js.map": "/Yalantis/static/js/runtime-main.74630fdf.js.map",
     "static/js/2.2d9ba517.chunk.js": "/Yalantis/static/js/2.2d9ba517.chunk.js",
     "static/js/2.2d9ba517.chunk.js.map": "/Yalantis/static/js/2.2d9ba517.chunk.js.map",
     "index.html": "/Yalantis/index.html",
-    "precache-manifest.749c51cdf33d2b677d40973c9e67ccab.js": "/Yalantis/precache-manifest.749c51cdf33d2b677d40973c9e67ccab.js",
+    "precache-manifest.c0c7f9d2d103dc50cd8b11b3f1fadf66.js": "/Yalantis/precache-manifest.c0c7f9d2d103dc50cd8b11b3f1fadf66.js",
     "service-worker.js": "/Yalantis/service-worker.js",
-    "static/css/main.479e6965.chunk.css.map": "/Yalantis/static/css/main.479e6965.chunk.css.map"
+    "static/css/main.d3ddccce.chunk.css.map": "/Yalantis/static/css/main.d3ddccce.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.74630fdf.js",
     "static/js/2.2d9ba517.chunk.js",
-    "static/css/main.479e6965.chunk.css",
-    "static/js/main.feccd4d1.chunk.js"
+    "static/css/main.d3ddccce.chunk.css",
+    "static/js/main.bb1ea494.chunk.js"
   ]
 }
