@@ -1,5 +1,5 @@
-import React from "react";
-import "./monthListItem.css";
+import React from 'react';
+import './monthListItem.css';
 
 class Month extends React.Component {
   constructor(props) {
@@ -29,9 +29,10 @@ class Month extends React.Component {
 
   render() {
     const {name, id, filter} = this.props;
+    const shadowStyle = `0 0 5px white, 0 0 10px white, 0 0 15px ${this.state.color}, 0 0 20px ${this.state.color}, 0 0 25px ${this.state.color}, 0 0 30px ${this.state.color}, 0 0 35px ${this.state.color}`;
     const isActive = id === filter ? {
-      boxShadow: `0 0 5px white, 0 0 10px white, 0 0 15px ${this.state.color}, 0 0 20px ${this.state.color}, 0 0 25px ${this.state.color}, 0 0 30px ${this.state.color}, 0 0 35px ${this.state.color}`,
-      textShadow: `0 0 5px white, 0 0 10px white, 0 0 15px ${this.state.color}, 0 0 20px ${this.state.color}, 0 0 25px ${this.state.color}, 0 0 30px ${this.state.color}, 0 0 35px ${this.state.color}`,
+      boxShadow: shadowStyle,
+      textShadow: shadowStyle,
       transitionProperty: 'all',
       transitionDuration: '0.2s',
       transitionTimingFunction: 'ease'

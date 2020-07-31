@@ -1,3 +1,3 @@
-import MonthListItem from "./MonthListItem";
+import MonthListItem from './MonthListItem';
 
 export default MonthListItem;

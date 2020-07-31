@@ -1,11 +1,11 @@
-import React from "react";
-import MonthListItem from "../MonthListItem";
-import UserListItem from "../UserListItem";
-import "./list.css";
+import React from 'react';
+import MonthListItem from '../MonthListItem';
+import UserListItem from '../UserListItem';
+import './list.css';
 
-const List = ({items, isUsers, filter, changeFilter}) => {
+const List = ({ items, isUsers, filter, changeFilter }) => {
   const list = items.map((item) => {
-    const {id, ...itemProps} = item;
+    const { id, ...itemProps } = item;
 
     return (
       <div key={id}>
